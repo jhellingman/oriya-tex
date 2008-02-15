@@ -1,0 +1,13 @@
+% oriya.sty -- set up Oriya fonts for LaTeX2e
+% Copyright 1996 Jeroen Hellingman
+%
+\ProvidesFile{oriya.sty}[1996/11/21 declare Oriya fonts]
+%
+\DeclareFontEncoding{OR1}{}{}
+\DeclareFontSubstitution{OR1}{konark}{m}{n}
+\def\ORkon{\fontencoding{OR1}\fontfamily{konark}\selectfont}
+\def\ORcut{\fontencoding{OR1}\fontfamily{cuttack}\selectfont}
+%
+\input orcode
+%
+\endinput

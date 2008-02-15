@@ -1,0 +1,95 @@
+% ormacs.tex -- Oriya macros
+%
+
+\catcode`\@=11
+
+%%%%% Font loading Macros
+
+\font\or@VIII   = or8
+\font\or@X      = or10
+\font\or@XII    = or12
+\font\or@XVII   = or17
+\font\or@XXIV   = or17 at 24pt
+\font\or@LXXII  = or17 at 72pt
+
+\font\orsl@VIII = orsl8
+\font\orsl@X    = orsl10
+\font\orsl@XII  = orsl12
+\font\orsl@XVII = orsl17
+
+\font\orbf@VIII = orbf8
+\font\orbf@X    = orbf10
+\font\orbf@XII  = orbf12
+\font\orbf@XVII = orbf17
+
+\font\orbs@VIII = orbs8
+\font\orbs@X    = orbs10
+\font\orbs@XII  = orbs12
+\font\orbs@XVII = orbs17
+
+\font\orss@X	= orss10
+\font\orss@XVII	= orss17
+\font\orss@XXIV = orss17 at 24pt
+\font\orss@LXXII= orss17 at 72pt
+
+\font\orsssl@X	= orsssl10
+\font\orssbf@X	= orssbf10
+\font\orssbs@X	= orssbs10
+
+\def\orVIII{\or@VIII\baselineskip=9pt}
+\def\or{\or@X\baselineskip=12pt}
+\def\orXII{\or@XII\baselineskip=15pt}
+\def\orXVII{\or@XVII\baselineskip=20pt}
+\def\orXXIV{\or@XXIV\baselineskip=26pt}
+\def\orLXXII{\or@LXXII\baselineskip=72pt}
+
+\def\orsl{\orsl@X\baselineskip=12pt}
+\def\orbf{\orbf@X\baselineskip=12pt}
+\def\orbs{\orbs@X\baselineskip=12pt}
+
+\def\orss{\orss@X\baselineskip=12pt}
+\def\orssXVII{\orss@XVII\baselineskip=20pt}
+\def\orssXXIV{\orss@XXIV\baselineskip=26pt}
+\def\orssLXXII{\orss@LXXII\baselineskip=72pt}
+
+\def\orsssl{\orsssl@X\baselineskip=12pt}
+\def\orssbf{\orssbf@X\baselineskip=12pt}
+\def\orssbs{\orssbs@X\baselineskip=12pt}
+
+%%%%% Oriya Characters
+
+\def\<#1>{\char#1}
+
+\input orcode
+
+\newif\iformode\ormodefalse     % toggle for Oriya mode
+
+
+%%%%% Syllable Composition Algorithm
+%
+% The intention here is to create macros that correctly parse ISCII input,
+% and build the syllables on the fly. This will allow users to type their
+% text in a ISCII editor, and then simply put it through TeX to view and
+% print it. It will make processing a bit slow, but it saves a lot of 
+% hassle with pre-processors.
+
+% make the ISCII characters active, and let them call appropriate macros
+
+% \IsciiCons is called by all consonants and full vowels, it will look 
+% ahead to see what is next. The next character can be
+%   a halant            call \IsciiHalant
+%   a vowel sign        call \IsciiMatra
+%   a modifier          call \IsciiModifier
+%   something else      call \IsciiBuildSyllable
+
+\def\IsciiCons#1{#1}
+
+% \IsciiReph is called in the special case of the letter ra, it will look
+% ahead to see what is next. The next character can be
+
+
+
+% we have given all glyphs in our font symbolic names, we define them here.
+
+\catcode`\@=12
+\endinput

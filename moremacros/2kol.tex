@@ -1,0 +1,193 @@
+% 2kol.tex
+% last edit: 20-NOV-1991 --JH
+
+%
+% Name:     two_col.tex                 Double Column Format for plain TeX.
+%
+% Author:
+%   E. Myers and F.E. Paige
+%   clean up and modifications by Jeroen Hellingman
+%
+% Description:
+%
+%   two_col.tex produces double-column output with balanced columns.
+%   Adapted from The TeXBook, pg 417, and The TUGboat, Vol 6, pg 29.
+%
+%   \setdoublecolumns initializes the double column format, including
+%   setting \hsize and \vsize:
+%
+%       \setdoublecolumns#1#2#3         initializes double column format
+%                                           #1 = overall width
+%                                           #2 = overall height
+%                                           #3 = column width
+%
+%   \begindoublecolumns and \enddoublecolumns are used to switch between
+%   single and double column format:
+%
+%       \begindoublecolumns             starts double column format
+%       \enddoublecolumns               returns to single column format
+%                                       and balances columns
+%       \leftcolrule                    draws a rule across left column
+%       \rightcolrule                   draws a rule across right column
+%
+%
+%   A typical TeX double-column document will contain:
+%
+%   \setdoublecolumns{width}{height}{colwidth}  % in cm, in, pt,...
+%   ... title page, etc ...
+%   ... title, author, etc ...                  % default is single column
+%   \begindoublecolumns                         % switch to 2 columns
+%   ... text ...
+%   \enddoublecolumns                           % switch to 1 column
+%   \leftcolrule                                % rule left column (optional)
+%   $$
+%   ... long equation, table, etc ...           % across both columns
+%   $$
+%   \rightcolrule                               % rule right column (optional)
+%   \begindoublecolumns                         % again 2 columns 
+%   ... text ...
+%   \enddoublecolumns                           % end
+%
+%   Since double columns are narrow, the normal TeX spacing will produce
+%   many overfull hboxes. To avoid this, the interword skip \spaceskip is
+%   replaced by \doublecolskip with the default value
+%
+%       \doublecolskip=.3333em plus .2em minus .1em
+%
+%   and the \hyphenpenalty is set to zero. To balance the columns, it is 
+%   necessary to allow some vertical stretch; for example use
+%
+%       \parskip=\smallskipamount
+%
+%   \topinsert and \midinsert, etc. will usually work with double column
+%   format. However, because the macros build a box longer than two columns and 
+%   then split it, it is possible for a \midinsert to fit on the oversize
+%   page but not on the real one. In this case it will be lost. If this
+%   happens, move the insertion to another position.
+%
+%   To type oversize documents on an 8.5 x 11 inch laser printer, use
+%   \tenpoint and set the dimensions in \setdoublecolumns to 10/12 of the
+%   desired size. Then the document enlarged by 1.2 will be correct.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\message{Double Column Format.}
+
+\newdimen\colwidth \newdimen\bigcolheight \newdimen\leftpluscenter
+\newdimen\pagewidth \newdimen\pageheight \newdimen\ruleht
+\ruleht=.5pt
+         
+\newskip\doublecolskip \newskip\savespaceskip
+%\doublecolskip=.3333em plus .3333em minus .1em
+\doublecolskip=\spaceskip % changed --JH, use \emergencystretch
+
+\newbox\partialpage
+\newdimen\savesize
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   From the TeXBook:
+
+\newif\iftitle
+\newinsert\margin
+\dimen\margin=\maxdimen             % no limit on the number of marginal notes
+%\def\rhead{}                        % \rhead contains the running headline
+%\def\leftheadline{\hbox to \pagewidth{%
+%    \vbox to 10pt{}                 % strut to position the baseline
+%    \llap{\tenbf\folio\kern1pc}     % folio to left of text
+%    \tenit\rhead\hfil}}             % running hed flush left
+%\def\rightheadline{\hbox to \pagewidth{\vbox to 10pt{}%
+%    \hfil\tenit\rhead\/             % running head flush right
+%    \rlap{\kern1pc\tenbf\folio}}}   % folio to right of text
+% No nonsens headline --JH:
+\headline={\hfill\folio\hfill}
+\newtoks\leftheader   \leftheader=\headline
+\newtoks\rightheader  \rightheader=\headline
+\def\leftheadline{\hbox to \pagewidth{\vbox to 10pt{}%
+    \the\leftheader}}
+\def\rightheadline{\hbox to \pagewidth{\vbox to 10pt{}%
+    \the\rightheader}}
+% --JH.
+
+\def\onepageout#1{\shipout\vbox{    % here we define one page of output
+    \offinterlineskip               % butt the boxes together
+    \vbox to 3pc{                   % this part goes on top of the 44pc pages
+      \iftitle \global\titlefalse \setcornerrules
+      \else\ifodd\pageno\rightheadline\else\leftheadline\fi\fi \vfill}
+    \vbox to \pageheight{
+      \ifvoid\margin\else           % marginal info is present
+       \rlap{\kern31pc\vbox to0pt{\kern4pt\box\margin \vss}}\fi
+      #1                            % now insert the main information
+      \ifvoid\footins\else          % footnote info present
+       \vskip\skip\footins \kern-3pt
+       \hrule height\ruleht width\pagewidth \kern-\ruleht \kern3pt
+       \unvbox\footins\fi
+      \boxmaxdepth=\maxdepth}}
+  \advancepageno}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   From the TugBoat, with some additions. Note that calling
+%   \setdoublecolumns redefines \output.
+
+\def\setdoublecolumns#1#2#3{
+        \global\hsize=#1 \global\vsize=#2 \global\colwidth=#3
+        \pagewidth=\hsize \pageheight=\vsize
+        \bigcolheight=\vsize 
+        \multiply \bigcolheight by 2 \advance \bigcolheight by 1cm
+        \leftpluscenter=\pagewidth \advance \leftpluscenter by -\colwidth
+        \output{\onepageout{\unvbox255}}}
+
+\def\begindoublecolumns{\begingroup
+        \savesize=\vsize
+        \output={\global\setbox\partialpage=\vbox{\unvbox255}}\eject
+        \output={\doublecolumnout} \hsize=\colwidth \vsize=\bigcolheight
+        \advance \vsize by -2\ht\partialpage
+        \global\savespaceskip=\spaceskip \global\spaceskip=\doublecolskip
+        \global\displaywidth=\colwidth
+        \global\hyphenpenalty=0}
+
+\def\doublecolumns{\begindoublecolumns}         % synonym
+
+\def\enddoublecolumns{\output={\balancecolumns}\eject
+        \global\output={\onepageout{\unvbox255}}
+        \global\vsize=\savesize
+        \endgroup \pagegoal=\vsize
+        \global\spaceskip=\savespaceskip \global\displaywidth=\hsize
+        \global\hyphenpenalty=50}
+                                      
+\def\doublecolumnout{\dimen0=\pageheight
+        \advance \dimen0 by -\ht\partialpage \splittopskip=\topskip
+        \setbox0=\vsplit255 to \dimen0
+        \setbox2=\vsplit255 to \dimen0
+        \onepageout\pagesofar
+        \global\vsize=\bigcolheight
+        \unvbox255 \penalty\outputpenalty}
+
+\def\pagesofar{\unvbox\partialpage
+        \wd0=\hsize \wd2=\hsize \hbox to \pagewidth{\box0\hfil\box2}}
+
+\def\balancecolumns{\setbox0=\vbox{\unvbox255} \dimen0=\ht0
+        \advance \dimen0 by \topskip \advance \dimen0 by -\baselineskip
+        \divide \dimen0 by 2 \splittopskip=\topskip
+        {\vbadness=10000 \loop \global\setbox3=\copy0
+        \global\setbox1=\vsplit3 to \dimen0
+        \ifdim \ht3 > \dimen0 \global\advance \dimen0 by 1pt \repeat}
+        \setbox0=\vbox to \dimen0{\unvbox1}
+        \setbox2=\vbox to \dimen0{\unvbox3}
+        \global\output={\balancingerror}
+        \pagesofar}
+
+\newhelp\balerrhelp{Please change the page into one that works.}
+
+\def\balancingerror{\errhelp=\balerrhelp
+        \errmessage{Page cannot be balanced}
+        \onepageout{\unvbox255}}
+
+\def\leftcolrule{\vskip 2pt \nointerlineskip 
+        \vbox{\hrule width\colwidth height\ruleht} 
+        \nointerlineskip \vskip 4pt \relax}
+
+\def\rightcolrule{\vskip 4pt \nointerlineskip 
+        \moveright\leftpluscenter \vbox{\hrule width\colwidth height\ruleht}
+        \vskip 2pt \relax \nointerlineskip}
+
+% end of two_col.tex

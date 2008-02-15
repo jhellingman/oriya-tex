@@ -1,0 +1,42 @@
+TODO in the Oriya metafont as of 07 September 1997:
+
+glyphs seen but not included in this font:
+  conjunct k+la			(can be made from parts by TeX)
+  
+Characters to create:
+
+  improve question mark
+  add international numerals
+
+Characters done:
+
+  combination of secondary va/ba and vowel sign u [done]
+  combination of secondary bha and vowel sign u [done]
+  slash, backslash [done]
+  combination chaa [done]
+  conjunct mbha [done]
+  many consonant-matra combinations [done]
+  centered version of matra u, uu, ri and candrabindu for use with some letters [done]
+
+Edit or change:
+
+  quotes	go wrong in slanted styles
+
+  move old characters to orold.mf [done]
+  hu		adjust to new ha shape [done]
+  o, oo		too narrow, eye to big [done]
+  dha		looks ugly, make lower curve smaller [done]
+  nya		try different design [done]
+  gha		make stroke between bottom curves straight [done]
+  t+ta		left of outer circle looks ugly [done]
+  dda, etc.	adjust inner bar a bit [done]
+  o, oo, t+ta	find solution for these small eyes [done]
+
+  make various dimensions integer with
+
+  define_whole_pixels()
+
+  and tactically use good.x alpha and good.y beta
+  (take care of picking the right pen first)
+
+

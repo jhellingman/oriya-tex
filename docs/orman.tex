@@ -1,0 +1,1074 @@
+% orman.tex -- user's manual of Oriya-TeX
+% Copyright 1996, 1999 Jeroen Hellingman
+%
+% History:
+%   20-JUN-1999 Added several conjuncts (JH)
+%   21-MAY-1999 Added s+kha conjunct (JH)
+%   30-MAY-1998 Added h+ma conjunct (JH)
+%	15-MAY-1998 Fixed wrong vowel-sign ri (JH)
+%   03-MAY-1998 Changed address, added vowel signs for rii, li, lii,
+%               further minor modifications (JH)
+%   07-SEP-1997 Added d+ga, dd+dda (JH)
+%   17-MAY-1997 Several corrections and addition of table (JH)
+%   11-MAY-1997 Added transcription table (JH)
+%   02-MAR-1997 Small Edits (JH)
+%   01-SEP-1996 Extended (JH)
+%   15-AUG-1996 Created (Jeroen Hellingman)
+%
+%%%%% Macros
+
+\input ormacs
+\input 2kol
+\setdoublecolumns{16cm}{24.6cm}{7.65cm}
+\emergencystretch=30pt
+
+\def\today{\number\day/\number\month/\number\year}
+
+\rightheader={{\it Oriya-\TeX\ 1.0 Users' Manual}\hfill\folio}
+\leftheader={\folio\hfill{\it Oriya-\TeX\ 1.0 Users' Manual}}
+
+\voffset-1cm	% artifact of the 2kol macros
+
+\def\ortex{Oriya-\TeX}
+\def\obrace{\char"7B}
+\def\cbrace{\char"7D}
+
+\parindent=0pt
+
+%%%%% Text
+
+\beginsection \ortex
+
+({\it printed on \today\/})\medskip
+
+\beginsection Summary
+
+This article gives an overview of the \ortex-package which can be
+used in combination with \TeX\ for typesetting text in Oriya 
+({\or uw[\ornukta aA}). \ortex\ can also be used in combination with other
+packages, to typeset mixed language
+documents. \ortex\ is part of a larger project to make all South Asian scripts
+available for \TeX. The following South Asian scripts are now available
+as Metafonts: Devanagari (for Sanskrit, Prakrit, Hindi, Marathi, Nepali,
+Konkani), Gurumukhi (for Panjabi), Tamil, Malayalam, Telugu, Kannada, and
+Singhalese. Some of these packages need some refinement and adaption to
+La\TeX. The only important Indian scripts still missing are Gujarati and Bengali.
+
+\beginsection License
+
+This software is \copyright\ Copyright 1999 Jeroen Hellingman. However, it may
+be freely distributed in the spirit of the GNU General Public License. The only
+restriction is that you cannot place further restrictions on this or derived works
+and you should give others you give this software or derived works everything, 
+including the sources. Of course, works you print using this font are not derived 
+works, but if you add or touch up a few characters, or create a post script font, 
+based on this design, it is.
+
+As I am a collector of aksharamala (first grade alphabet books, often very
+nice and colourful), I will highly appreciate it if you send me one, especially
+for Oriya, although all Indian scripts are welcome.
+
+% This is still a work in progress. A beta version of the fonts is available
+% for interested users. Note that the pre-processor is not yet available.
+% 
+% The following points are to be reviewed:
+% (i)~Letters and symbols that might be missing.
+% (ii)~Designs of specific letters might need improvements.
+% (iii)~Spacing between letters can sometimes be incorrect.
+% (iv)~There might be spelling mistakes in the samples.
+% 
+% Your help is requested for the following points:
+% (i)~Better samples, I would prefer to have some pancatantra stories.
+% (ii)~Resolving some technical details.
+% (iii)~Converting the fonts to TrueType and PostScript type~1 fonts. (I don't have
+% such fonts yet.)
+% (iv)~Translating the manual to Oriya.
+% 
+% All suggestions and comments are welcome.
+
+\bigskip
+
+Jeroen Hellingman
+
+Aletta Jacobsstraat 5
+
+3404 XD IJsselstein
+
+The Netherlands
+
+telephone: +31 30 687 5444 (19:00--21:00 MET)
+
+E-mail: {\tt<jehe@kabelfoon.nl>}
+
+\vfill\eject
+
+%\begindoublecolumns
+
+\beginsection Introduction
+
+The Oriya script is used for the Oriya language and a few minority languages, 
+such as Khondi and Santali, spoken
+in the state of Orissa in Eastern India. The Oriya language belongs to the
+Indic branch of the large Indo-European language family and is
+closely related to Bengali. It is spoken by about 30 million people, of them
+roughly the half can read and write.
+
+The Oriya script forms a link between the South and North Indian scripts. The
+distinctive inner parts of some of the letters can be recognised when one knowns
+Devanagari and
+Bengali script, but the circular appearance reminds one of the curly South Indian
+scripts. The explanation for all those circles is easy: traditionally the
+script was written on palm-leaves with a sharp metal nib, and when one makes a
+horizontal top-line like in Devanagari on a palm-leave, it will tear. To
+avoid this, the top-lines where changed into the semi-circles which give
+Oriya its characteristic appearance---described by Nakanishi\footnote*{Akira
+Nakanishi, {\it Writing Systems of the World,} p. 54} as a parade of bald heads.
+
+The Oriya alphabet follows the alphabetic order of Sanskrit. This
+order is based on phonetic principles. The vowels come first, in pairs of 
+a short and long sound, those articulated in the
+back of the mouth first. After the `pure' vowels come the `diphtongs'
+(in Sanskrit, {\it e} and
+{\it o} are supposed to have been diphtongs originally).
+
+\def\OB#1#2{$\hbox{\orXVII#1}\atop\hbox{\strut\it#2}$}
+
+$$
+\vbox{\halign{\it\hfill#\hfill\quad&&\it\hfill#\hfill\quad\cr
+\OB{a}{a}	&\OB{aA}{\=a}	&\OB{i}{i}	&\OB{I}{\=\i}	&\OB{u}{u}	&\OB{U}{\=u}	\cr\noalign{\smallskip}
+\OB{\orvowelri}{\d r}&\OB{\orvowelrii}{\d{\=r}}&\OB{\orvowelli}{\d l}&\OB{\orvowellii}{\d{\=l}}	\cr\noalign{\smallskip}
+\OB{e}{e}	&\OB{E}{ai}	&\OB{o}{o}	&\OB{O}{au}	\cr
+}}
+$$
+
+\noindent Three vowel modifiers traditionally follow the vowels. These are
+{\or a/} {\it a\.m}, {\or aM} {\it a\d{m}}, and {\or aH} {\it a\d{h}},
+which originally stood for a nasalisation, a following
+nasal, and a following aspiration respectively. 
+In Oriya, {\or H} {\it \d h} is now used to indicated that the following consonant
+is doubled.
+Here written on the letter {\or a} {\it a,}
+they can appear on any letter. The modifiers are 
+followed by the consonants arranged in rows (called {\it varg}) of related sounds. The rows are ordered
+again by point of articulation, with semivowels and sibilants comming at the end, 
+and in each row the voiceless sound first, followed by the aspirated, voiced,
+voiced and aspirated sound and the corresponding nasal.
+
+$$
+\vbox{\halign{\it\hfill#\hfill\quad&&\it\hfill#\hfill\quad\cr
+\OB{k}{ka}	&\OB{K}{kha}	&\OB{g}{ga}	&\OB{G}{gha}	&\OB{f}{\.na}	\cr\noalign{\smallskip}
+\OB{c}{ca}	&\OB{C}{cha}	&\OB{j}{ja}	&\OB{J}{jha}	&\OB{F}{\~na}	\cr\noalign{\smallskip}
+\OB{q}{\d ta}	&\OB{Q}{\d tha}	&\OB{w}{\d da}	&\OB{W}{\d dha}	&\OB{N}{\d na}	\cr\noalign{\smallskip}
+\OB{t}{ta}	&\OB{T}{tha}	&\OB{d}{da}	&\OB{D}{dha}	&\OB{n}{na}	\cr\noalign{\smallskip}
+\OB{p}{pa}	&\OB{P}{pha}	&\OB{b}{ba}	&\OB{B}{bha}	&\OB{m}{ma}	\cr\noalign{\smallskip}
+\OB{Y}{ya}	&\OB{y}{\.ya}	&\OB{r}{ra}	&\OB{l}{la}	&\OB{v}{va}	\cr\noalign{\smallskip}
+\OB{z}{\'sa}	&\OB{S}{\d sa}	&\OB{s}{sa}					\cr\noalign{\smallskip}
+\OB{h}{ha}	&\OB{L}{\d la}	&	&\OB{w\ornukta}{\d{r}a}	&\OB{W\ornukta}{\d{r}ha}\cr
+}}
+$$
+
+\noindent as shown in this table, all consonants are thought to be followed by the
+short letter {\or a} {\it a.}\footnote{**}{The vowels {\or\orvowelrii, \orvowelli,}
+and {\or\orvowellii} are not used in Oriya at all. They are borrowed from Sanskrit
+(and even in Sanskrit the last one is only introduced for symmetry), and are
+included in the alphabet for completeness. I've found only one reference to
+the corresponding vowel signs for these three vowels. The letter {\or v} is a
+recent invention to distinguish the sound {\it va} from {\it ba} in loanwords.
+It is a combination of the vowel {\or o} with a secondary {\or b}.}
+
+When a vowel follows a consonant, this is indicated by writing a special vowel sign,
+attached to the consonant. These vowel signs sometimes even stand before the
+consonant they apply to. Here the vowel signs are shown attached to the letter 
+{\or g} {\it ga\/}:
+
+$$
+\vbox{\halign{\it\hfill#\hfill\quad&&\it\hfill#\hfill\quad\cr
+\OB{g}{ga}	&\OB{gA}{g\=a}	&\OB{g[}{gi}	&\OB{gX}{g\=\i} &\OB{g]}{gu}	&\OB{gZ}{g\=u}	\cr\noalign{\smallskip}
+\OB{g\orsignri}{g\d r}	&\OB{<g}{ge}	&\OB{<g>}{gai}	&\OB{<gA}{go} &\OB{<g*}{gau}	\cr\noalign{\smallskip}
+}}
+$$
+
+Vowel signs often combine with the consonant they apply to:
+The vowel sign for {\it\=a,} {\or\dotcircle A}, is often joined to the letter, as
+in {\or kA} {\it k\=a.}
+The vowel sign for {\it i,} {\or\dotcircle[}, `sinks' into the outer circle,
+for example in 
+{\or k[} {\it ki}, and the vowel sign for {\it u,} {\or\dotcircle]}, can be written
+in one continuous stroke, as in {\or k]} {\it ku}. Sometimes
+the vowel sign for {\it u,} {\or\dotcircle]}, becomes {\or\dotcircle\orsignuvar},
+for example in {\or l]} {\it lu}.
+On the letters  
+{\or T} {\it tha\/} and {\or D} {\it dha}, the vowel sign for {\it i,}
+{\or\dotcircle[}, becomes a little hook {\or\dotcircle\orsignivar}, written
+below the letter: {\or T[} {\it thi}, {\or D[} {\it dhi}. However, recent
+simplifications
+of the script have done away with all these irregular vowel signs.
+
+When no vowel follows a consonant at all, not even the short {\or a} {\it a,}
+this can be indicated with
+a sign called viram, {\or\dotcircle\orhalant}, for example, {\or k\orhalant} {\it k.}
+However, this symbol is not
+used that often. It is normally omitted at the end of words.
+
+When two or more consonants follow each other, they are combined into a
+consonant cluster or conjunct.
+Often these conjuncts consist of a smaller version of the second letter subscribed
+to the first letter, for example, {\or\orshca} {\it \'sca\/}
+is used for {\or z\orhalant c}. Sometimes,
+the outer circle of the subscribed consonant is omitted, as in {\or\orlka} {\it lka\/}
+for {\or l\orhalant k}. In many cases, however, the original consonants can hardly
+be recognised in the conjunct, for example in {\or\orkSa} {\it k\d sa\/}
+for {\or k\orhalant S}. A fairly complete list of conjuncts is given as an appendix.
+
+The letters {\or Y} {\it ya} and {\or r} {\it ra\/} are treated in a special way. 
+When {\or r} {\it ra\/} is the first consonant of a cluster, it appears as the symbol
+reph {\or\dotcircle\orreph} at
+the end of the cluster, for example, {\or\orNNa\orreph} {\it r\d n\d na}. When it
+is the last in a cluster, it appears as a subscribed hook, {\or\dotcircle\orsecra}, for
+example in {\or p\orsecra} {\it pra.} When the letter {\or Y} {\it y\/} is the
+last in a cluster,
+it appears as the symbol {\or\dotcircle\orsecya}, for example, {\or k\orsecya} {\it
+kya.} This same symbol {\or\dotcircle\orsecya} appears after the vowels {\or e} 
+{\it e\/} and {\or o} {\it o\/} to modify their sounds.
+
+The rules for combining consonants into conjuncts used to make typing and typesetting
+Oriya a very complicated business.
+Traditional Oriya typefaces in lead require several hundereds of different types.
+A computer, however, can easily apply all the rules, and
+make it possible to type only the base letters of Oriya in their phonetic order.
+
+The spelling and the use of conjuncts is hardly standarized, and it is no exception
+to come across spelling variations even inside a single book.
+
+Punctuation in Oriya script follows the English practice, except that
+the full stop is sometimes replaced by a standing bar {\or\ordanda}, called
+{\it danda}, which is separated from the last word by a space to avoid
+confusion with the vowel sign for {\or aA} {\it \=a}.
+
+Finally, Oriya uses its own set of figures, {\or 1 2 3 4 5 6 7 8 9 0}, although
+international figures are sometimes used as well.
+
+
+\beginsection How the Oriya fonts were made
+
+To the typeface designer, Oriya script poses
+a big challenge: to create a font that, while it maintains the
+characteristic Oriyan appearance, is still easily readable and also economises the
+use of paper. To achieve this, the first most important issue is to find
+the proper proportion between the size of the circle and the size of the
+inner, distinctive features of each letter. Especially when drawing the
+letters
+in large size on a sheet of paper, one tends to make the circle far to
+large, and, when the design is reduced to the normal size of a letter
+the inner details have become so small as hardly visible. However,
+the larger one makes the inner part, the more difficult it becomes
+to draw a pleasing circle around it.
+
+A second consideration
+is the extend to which vowel signs and secondary characters are allowed to
+stick below or above the letters, as this defines the necessary 
+baseline distance, and also the texture of the printed page. Here, again,
+one should not be tempted to make the vowel signs and secondary
+characters to small, and one can often win much by using a ligature
+instead of the standard combination---although the number of ligatures
+that can be used is limited.
+
+Because Oriya used to be written on palm-leaves, Oriya has little or no calligraphic
+tradition. One cannot produce thick-thin transitions, and other niceties with
+a metal nib. With the introduction of the printing press in India\footnote{*}{The first
+printing in Oriya was probably done at the Serampore mission press in the early
+nineteenth century. In 1809 this press printed a complete bible in Oriya.---B.S. Kesavan,
+{\it History of Printing and Publishing in India,} Vol.~I, p.~254}, Oriya
+typefaces with thick-thin transistions were produced. However, these
+thick-thin transitions where not applied in a consistent way.
+
+In this design, an attempt was made to add some calligraphic effects
+to the letters. After some trial and error, a 30~degree cut nib was found
+out to produce very acceptable results in most letters. Only in a few
+letters some little tricks, like using a second, much thinner pen, where
+required to make the result pleasing---notably in the diagonals
+of {\or y} {\it \.ya}, {\or S} {\it \d{s}a}, and {\or x} {\it k\d{s}a}.
+
+When I started the design of this font, I decided to look at some old Oriya
+manuscripts first---which was easy, as the museum was just around the corner
+from my home in Ahmedabad---and started to make skeleton studies. I sketched the
+skeleton or `essence' of the letter 25 millimetres high on graph paper.
+After this, I could easily read of the coordinates of the control points which
+I then coded in Metafont. Now, by giving the pen somewhat more `body,' a more
+usable letter would appear. Then, by changing the pen from a circle to a slanted 
+ellipse, a more calligraphic appearance was achieved. The illustration
+below demonstrates this for the letter {\or k} {\it ka\/}:
+
+%\enddoublecolumns
+
+\font\orskBIG=orsk10 at 47.62mm
+\font\orBIG=or10 at 47.62mm
+\font\orssBIG=orss10 at 47.62mm
+\vskip1cm
+\centerline{\orskBIG k\quad\orssBIG k\quad\orBIG k}
+\vskip1cm
+
+%\begindoublecolumns
+
+On the left is the original skeleton, then comes the design drawn with
+a circular nib, which I named {\orss kqk} {\it Cuttack}, after the (former) capital
+of Orissa, as it is supposed to be modern, and on the right is the design drawm
+with a elliptical nib, named {\or <kANAk\orreph} {\it Konark}, after the place
+where the famous sun temple is located.
+
+Of course, the designs didn't come out right the first time. Every letter
+has gone through several iterations of the process of first a skeleton
+sketch, then a large size picture on the screen, and finally a try-out
+in running text on paper. The large circles can easily dominate the design, but the
+distinctive
+features of each letter need to be easily recognised. In my first designs, I~made
+the inner features too small, which made reading text at small sizes difficult.
+
+\beginsection How to Use Oriya-\TeX
+
+A set of Oriya fonts alone doesn't make up an easy to use Oriya type-setting system.
+You will also need an easy way of typing Oriya text. The complex
+rules of Oriya script makes it cumbersome and error prone to type all
+required shapes directly. A computer can handle the composition and allow
+the user to type only the base characters in phonetic order. As the rules of
+Oriya composition are not build into \TeX, a pre-processor will be used to accomplish
+this. As the name suggests, this pre-processor needs to be run on your file
+with Oriya text before \TeX\ can handle it.
+
+The pre-processor will accept standard \TeX\ and La\TeX\ files, in which Oriya is typed
+in an ASCII based transcription scheme. This scheme is based on the scheme used
+by Frans Velthuis for Devanagari. The output is a file contains a lot
+of gibberish which you don't want to look at, but it will tell \TeX\ how to
+typeset your Oriya text. 
+
+Before you can start, you will have to load some macros.
+Users of plain \TeX\ have to input the file {\tt ormacs.tex} somewhere at the
+start of their document.
+Users of La\TeX\ can simply use the package {\tt oriya} to load the
+required macros and fonts. \ortex\ supports the new font selection scheme.
+
+To enable the pre-processor to recognise transcribed Oriya text, you will have to
+enclose it in between the tags {\tt <OR>} and {\tt </OR>}. A special `dollar-mode' is
+supplied for people who have to switch from Oriya to English constantly. When it
+is used, Oriya can also be enclosed between dollar signs. In this case, math
+has to be accessed with {\tt <MATH>} and {\tt </MATH>}.
+
+The following table indicates how to type Oriya. The first collumn indicates the
+transcription typed, the second the Oriya letter output, and the third the
+scientific transcription. It should be noted that the scientific transcription
+is based on the model of Sanskrit, and does not give an exact indication of the
+actual pronunciation in Oriya.
+
+\bigskip
+
+\bgroup
+\def\orstrut{\vtop to4pt{}\vbox to10pt{}}
+\def\q{\quad\hfill}
+\def\x{\vrule\ }
+\def\xx{\vrule width.8pt}
+\offinterlineskip
+\halign{\orstrut\xx\ \tt#\q&\x#\q&\x#\q\xx\ &\tt#\q&\x#\q&\x#\q\xx\ &\tt#\q&\x#\q&\x#\q\xx\cr
+\noalign{\hrule height.8pt}
+a       & {\or a} or implicit       	& {\it a}         	&
+ka      & {\or k}                  		& {\it ka}         	&
+pa      & {\or p}                   	& {\it pa}        	\cr
+aa      & {\or aA} or {\or\dotcircle A}	& {\it \=a}     	&
+kha     & {\or K}                 		& {\it kha}	        &
+pha, fa & {\or P}                   	& {\it pha, fa}     \cr
+i       & {\or i} or {\or\dotcircle[}	& {\it i}       	&
+ga      & {\or g}                   	& {\it ga}          &
+ba, va  & {\or b}                  	 	& {\it ba, va}      \cr
+ii      & {\or I} or {\or\dotcircle X}	& {\it \=\i}    	&
+gha     & {\or G}                   	& {\it gha}         &
+bha     & {\or B}                   	& {\it bha}         \cr
+u       & {\or u} or {\or\dotcircle]}  	& {\it u}       	&
+"na     & {\or f}                   	& {\it \.na}        &
+ma      & {\or m}                   	& {\it ma}       	\cr
+uu      & {\or U} or {\or\dotcircle Z}	& {\it \=u}         &
+ca      & {\or c}                  		& {\it ca}	        &
+ya      & {\or Y}                   	& {\it ya}          \cr
+R       & {\or\orvowelri} or {\or\dotcircle\orsignri}	& {\it \d{r}}	&
+cha     & {\or C}                 		& {\it cha}         &
+.ya     & {\or y}                  		& {\it \.ya}        \cr
+RR      & {\or\orvowelrii} or {\or\dotcircle\orsignrii}     		& {\it \d{\=r}}     &
+ja      & {\or j}                       & {\it ja}          &
+ra      & {\or r}                		& {\it ra}   		\cr
+L       & {\or\orvowelli} or {\or\dotcircle\orsignli}               & {\it \d{l}}       &
+jha     & {\or J}                 		& {\it jha}		    &
+la 		& {\or l}            			& {\it la}          \cr
+LL      & {\or\orvowellii} or {\or\dotcircle\orsignlii}              & {\it \d{\=l}}     &
+\~{}na  & {\or F}                 		& {\it \~na}        &
+.va     & {\or v}	                  	& {\it va}          \cr
+e       & {\or e} or {\or<\dotcircle}	& {\it e}           &
+.ta     & {\or q}                 		& {\it \d{t}a}      &
+sha     & {\or z}                 		& {\it \'sa}        \cr
+ai      & {\or E} or {\or<\dotcircle>}  & {\it ai}          &
+.tha    & {\or Q}                		& {\it \d{t}ha}     &
+.sa     & {\or S}                 		& {\it \d{s}a}      \cr
+o       & {\or o} or {\or<\dotcircle A} & {\it o}           &
+.da     & {\or w}                 		& {\it \d{d}a}      &
+sa      & {\or s}                 		& {\it sa}          \cr
+au      & {\or O} or {\or<\dotcircle*}  & {\it au}	        &
+.dha    & {\or W}                		& {\it \d{d}ha}     &
+ha      & {\or h}                  		& {\it ha}          \cr
+/	    & {\or\dotcircle/}				& {\it \.m}			&
+.na     & {\or N}                 		& {\it \d{n}a}      &
+.la     & {\or L}                  		& {\it \d{l}a}      \cr
+.m      & {\or\dotcircle M}          	& {\it \d{m}}       &
+ta  	& {\or t}                  		& {\it ta}		    &
+.ra     & {\or w\ornukta}               & {\it \d{r}a}	    \cr
+.h      & {\or\dotcircle H}           	& {\it \d{h}}       &
+tha     & {\or T}                 		& {\it tha}         &
+.rha    & {\or W\ornukta}               & {\it \d{r}ha}     \cr
+	    & 								& 					&
+da      & {\or d}                  		& {\it da}          &
++		& {\or\dotcircle+} 				&					\cr
+\~{}e   & {\or e\orsecya>}			 	& {\it \^e}        	&
+dha     & {\or D}                 		& {\it dha}         &
+		&								&					\cr
+\~{}o 	& {\or o\orsecya>}				& {\it \^o}			&
+na		& {\or n}                  		& {\it na}		    &
+        &                       		&               	\cr
+\noalign{\hrule height.8pt}
+}\egroup
+
+\bigskip
+
+Note that {\or\orkSa} {\it k\d sa} and {\or\orjnya} {\it j\~na} are
+conjuncts, and typed as {\tt k.sa} and {\tt j\~{}na} respectively.
+
+When two vowels follow each other, care has to be taken that the pair can
+be distinguished from a single vowel transcribed with two letters. This is
+done by typing {\tt"} between them. For example, 
+when a short {\or a} {\it a\/} follows another short {\or a} {\it a\/}. For
+example
+{\or kaN} {\it kaa\d{n},} should be typed as {\tt ka"a.n}. When there is
+no danger for confusion, there is no need to separate vowels in this way. 
+The following table should make all possible combinations clear:
+
+\vfill\eject
+
+\bgroup
+\def\orstrut{\vtop to4pt{}\vbox to10pt{}}
+\def\q{\quad\hfill}
+\def\x{\vrule\ }
+\def\xx{\vrule width.8pt}
+\offinterlineskip
+\halign{\orstrut\xx\ \tt#\q&\x#\q&\x#\q\xx\ &\tt#\q&\x#\q&\x#\q\xx\cr
+\noalign{\hrule height.8pt}
+aa		& {\or aA}		& {\it \=a}			&
+kaa		& {\or kA}		& {\it k\=a}		\cr
+a"a		& {\or aa}		& {\it aa}			&
+ka"a	& {\or ka}		& {\it kaa}			\cr
+a"aa	& {\or aaA}		& {\it a\=a}		&
+ka"aa	& {\or kaA}		& {\it ka\=a}		\cr
+ai		& {\or E}		& {\it ai}			&
+kai		& {\or <k>}		& {\it kai}			\cr
+a"i		& {\or ai}		& {\it a\"\i}		&
+ka"i	& {\or ki}		& {\it ka\"\i}		\cr
+au		& {\or O}		& {\it au}			&
+kau		& {\or <k*}		& {\it kau}			\cr
+a"u		& {\or au}		& {\it a\"u}		&
+ka"u	& {\or ku}		& {\it ka\"u}		\cr
+ii		& {\or I}		& {\it \=\i}		&
+kii		& {\or kX}		& {\it k\=\i}		\cr
+i"i		& {\or ii}		& {\it ii}			&
+ki"i	& {\or k[i}		& {\it kii}			\cr
+uu		& {\or U}		& {\it \=u}			&
+kuu		& {\or kZ}		& {\it k\=u}		\cr
+u"u		& {\or uu}		& {\it uu}			&
+ku"u	& {\or k]u}		& {\it kuu}			\cr
+\noalign{\hrule height.8pt}
+}\egroup
+
+\bigskip
+
+It is important to take care to to type the inherent {\or a} {\it a\/} when it is 
+silent between two letters. It may be omitted at the end of a word.
+
+To control the exact appearance of conjuncts, you can use the
+halant, which is transcribed as {\tt +}. When you want to use the
+standard conjunct, just type the constituent consonants after each
+other: for example, {\tt kra} gives you {\or\orkra} {\it kra.} If you want to
+use an explicit halant, type {\tt k+ra} to get {\or k+r} {\it kra.} If you want
+to use the variant {\or k\orsecra} {\it kra,} you can type it as {\tt k++ra}.
+
+Consult the table in the appendix for the exact appearance of each conjunct and
+possible variations.
+
+In India,
+there are several editors which allow phonetic order typing of Oriya script. Such editors
+normally use the ISCII character set to represent Oriya characters internally.
+To allow those people who have the luxery of an
+ISCII editor to use Oriya-\TeX, the pre-processor can also process ISCII, or
+convert between ISCII, Unicode, and transcription.
+
+Oriya-\TeX\ can also be used to typeset Oriya in scientific transcription.
+For this, the to be transcribed text has to be placed between {\tt<ORTR>} and
+{\tt </ORTR>}. The transcription as shown in the tables will be used. A silent
+{\it a\/} can be typed as {\tt *}, and a capital is produced by preceeding it
+with a {\tt \^\ }. A whole sentence in capitals can be produced by putting it
+in between {\tt \^\ \^\ }.
+
+
+% TODO
+
+
+
+%\enddoublecolumns
+
+% 
+% \beginsection Composition of Oriya
+% 
+% The composition algorithm for Oriya script accepts a sequence of Oriya characters,
+% encoded following the Unicode standard, and delivers a sequence of composition
+% instructions, which can be interpreted by a typesetting system, which is now \TeX, but
+% can also be configured for PostScript or just plain glyph sequences which can
+% be displayed on Windows.
+% 
+% For sake of the Oriya composition algorithm, we classify characters as follows:
+% 
+% $V$ full vowels, {\it i.e.,} {\or a} \dots\ {\or O}.
+% 
+% $C$ consonants, {\it i.e.,} {\or k} \dots\ {\or L}.
+% 
+% $M$ vowel signs or matras, {\it i.e.,} {\or\dotcircle A} \dots\ {\or <\dotcircle*}.
+% 
+% $D$ vowel modifiers, {\or\dotcircle/} candrabindu, {\or\dotcircle M}, anusvar, and
+% {\or\dotcircle H} visarg.
+% 
+% $H$ the vowel omission sign viram, {\or\dotcircle\orhalant}.
+% 
+% $N$ the diacritic sign nukta, {\or\dotcircle\ornukta}.
+% 
+% $O$ any other character, for example punctuation marks, Roman letters, figures, and spaces.
+% 
+% The logic unit for composition is a syllable. For the sake of our composition algorithm,
+% A syllable has the following structure:
+% 
+% syllable ::= cluster ending
+% 
+% cluster ::= letter halant letter
+% 
+% 
+% The structure of a syllable has to be changed, following the set of rules given 
+% below.
+% 
+% 1. re-ordering of the vowel-signs.
+%    The parts of the vowel signs have to positioned at their proper position.
+% 
+%    vowel vowel	left	over	under		right
+%    
+%    a	a
+%    \=a	aA
+%    i	i
+%    \=\i	
+%    
+%  
+% 2. re-ordering of the reph
+% 
+% 	When the first consonant of a cluster is ra, then this ra is represent
+% 	by the symbol reph, following the cluster and following consonants, but before
+% 	a possible vowel modifier.
+% 	
+% 3. use of secondary consonants
+% 
+% 	when the last consonant of the cluster has a secondary version, this
+% 	version is used, and placed in its proper position.
+% 	
+% 	consonant		left 	over	under	right
+% 	
+% 
+% 4. apply consonant--consonant ligatures
+% 5. apply consonant--vowel sign ligatures
+% 6. apply vowel sign--modifier--reph ligatures
+% 7. apply kerning.
+% 
+% 	all possible ligatures are given in the appendix.
+% 
+% 	
+% 	
+% 
+% The output of the algorithm is a sequence of glyphs. Those glyphs can be classified
+% as follows:
+
+\vfill\eject
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sample page Konark
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\oralphabet{a aA i I u U \orvowelri\ e E o O a/ aM aH\par
+k K g G f c C j J F q Q w W N t T d D n\par
+p P b B m y Y r l L z S s h\par}
+\def\ormatras{k kA k[ kX k] kZ k\orsignri\ <k <k> <kA <k* k/ kM kH\par}
+\def\orfigures{1 2 3 4 5 6 7 8 9 0\par}
+\def\orsample{\par nm\orska Ar. aAs\ornta]. k[m[t[ aC\ornta[?
+aApN K]s[<r rh\ornta]. aApN\orngka\ sm\orsignri\orddha[ <hu.
+aApN\orngka r nZaA bS\orreph\ m\orngga LmY <hU.
+k'N KAi<b, cAhA nA kP[? 
+aApN\orngka\ kAy\orsecya\orreph\orkra m k'N aC[?
+Grk] aAs\ornta].
+aApN\orngka] <dKA kr[ K]s[ <hl[.
+aAuT<r m[z[bA.\par}
+
+\font\ssbfXII=cmss10 at 12pt
+
+\leftline{\ssbfXII Oriya}
+\vskip2mm
+\hrule
+\vskip1cm
+\leftline{Konark regular 72pt}
+{\orLXXII a <kANAk\orreph
+
+}
+
+\vskip5mm
+\leftline{Konark regular 24pt}
+
+{
+\orXXIV\oralphabet
+\orXVII\ormatras
+\orfigures
+} 
+
+\vskip3mm
+\hrule
+\vskip3mm
+
+\begindoublecolumns
+
+Konark normal 10 pt
+{\or <kANAk\orreph\ <nAr\orsecma l \orsample}
+
+\medskip Konark slanted 10 pt
+{\orsl <kANAk\orreph\ s\orsecla\ornta w \orsample}
+
+\medskip Konark bold 10 pt
+{\orbf <kANAk\orreph\ <bAl\orhalant w \orsample}
+
+\medskip Konark bold slanted 10 pt
+{\orbs <kANAk\orreph\ <bAl\orhalant w s\orsecla\ornta w \orsample}
+
+\enddoublecolumns
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sample page Cuttack
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vfill\eject
+
+\font\ssbfXII=cmss10 at 12pt
+
+\leftline{\ssbfXII Oriya}
+\vskip2mm
+\hrule
+\vskip1cm
+\leftline{Cuttack regular 72pt}
+{\orssLXXII a kqk
+
+}
+
+\vskip5mm
+\leftline{Cuttack regular 24pt}
+
+{\orssXXIV\oralphabet
+\orssXVII\ormatras
+\orfigures
+} 
+
+\vskip3mm
+\hrule
+\vskip3mm
+
+\begindoublecolumns
+
+Cuttack normal 10 pt
+{\orss kqk <nAr\orsecma l \orsample}
+
+\medskip Cuttack slanted 10 pt
+{\orsssl kqk s\orsecla\ornta w \orsample}
+
+\medskip Cuttack bold 10 pt
+{\orssbf kqk <bAl\orhalant w \orsample}
+
+\medskip Cuttack bold slanted 10 pt
+{\orssbs kqk <bAl\orhalant w s\orsecla\ornta w \orsample}
+
+\enddoublecolumns
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vfill\eject
+
+\leftline{\bf Table of Oriya letters}
+\bigskip
+
+All basic characters of the Oriya script are given, together with their Roman
+transliteration, ISCII\footnote{*}{Indian Script Code for Information Interchange, 
+IS 13194:1991} and Unicode\footnote{**}{The Unicode Standard, Version 1.0, Vol 1., 
+and checked against the tables of version 2.014} code-position, ASCII representation, 
+and name. In a few cases, two ISCII characters are needed to represent a single 
+Oriya character. The vowel signs are given on a dotted circle, which represents 
+the consonant or conjunct to which the vowel sign is to be applied.
+
+Conjuncts and ligatures of consonants and vowel signs are given in the
+next sections.
+
+\medskip
+
+\halign{\orXII #\quad\hfill&#\quad\hfill&\tt#\ \hfill&\tt#\ \hfill&\tt#\ \hfill&#\hfill\cr
+\bf Oriya	&\bf Roman	&\bf ISCII	&\bf Unicode	&\bf ASCII	&\bf name	\cr\noalign{\medskip\leftline{\it vowels}\medskip}
+%
+a		&a		&A4		&0B05		&a	&vowel a 	\cr
+aA		&\=a		&A5		&0B06		&aa	&vowel aa 	\cr
+i		&i		&A6		&0B07		&i	&vowel i	\cr
+I		&\=\i		&A7		&0B08		&ii	&vowel ii	\cr
+u		&u		&A8		&0B09		&u	&vowel u	\cr
+U		&\=u		&A9		&0B0A		&uu	&vowel uu	\cr
+\orvowelri	&\d{r}		&AA		&0B0B		&R	&vowel ri	\cr
+\orvowelrii	&\d{\=r}		&AA E9		&0B60		&RR	&vowel rii	\cr
+\orvowelli	&\d{l}		&A6 E9		&0B0C		&L	&vowel li	\cr
+\orvowellii	&\d{\=l}		&A7 E9 		&0B61		&LL	&vowel lii	\cr
+e		&e		&AC		&0B0F		&e	&vowel e	\cr
+E		&ai		&AD		&0B10		&ai	&vowel ai	\cr
+o		&o		&B0		&0B13		&o	&vowel o	\cr
+O		&au		&B1		&0B14		&au	&vowel au	\cr\noalign{\medskip\leftline{\it vowel modifiers}\medskip}
+%
+a/		&a\.m		&A1		&0B01		&/	&candrabindu	\cr
+aM		&a\d{m}		&A2		&0B02		&.m	&anusvar	\cr
+aH		&a\d{h}		&A3		&0B03		&.h	&visarg		\cr\noalign{\medskip\leftline{\it consonants}\medskip}
+%
+k		&ka		&B3		&0B15		&k	&consonant ka	\cr
+K		&kha		&B4		&0B16		&kh	&consonant kha	\cr
+g		&ga		&B5		&0B17		&g	&consonant ga	\cr
+G		&gha		&B6		&0B18		&gh	&consonant gha	\cr
+f		&\.na		&B7		&0B19		&"n	&consonant nga	\cr\noalign{\medskip}
+%
+c		&ca		&B8		&0B1A		&c	&consonant ca	\cr
+C		&cha		&B9		&0B1B		&ch	&consonant cha	\cr
+j		&ja		&BA		&0B1C		&j	&consonant ja	\cr
+J		&jha		&BB		&0B1D		&jh	&consonant jha	\cr
+F		&\~na		&BC		&0B1E		&\~{}n	&consonant nya	\cr\noalign{\medskip}
+%
+q		&\d{t}a		&BD		&0B1F		&.t	&consonant tta	\cr
+Q		&\d{t}ha	&BE		&0B20		&.th	&consonant ttha	\cr
+w		&\d{d}a		&BF		&0B21		&.d	&consonant dda	\cr
+W		&\d{d}ha	&C0		&0B22		&.dh	&consonant ddha	\cr
+N		&\d{n}a		&C1		&0B23		&.n	&consonant nna	\cr\noalign{\medskip}
+%
+t		&ta		&C2		&0B24		&t	&consonant ta	\cr
+T		&tha		&C3		&0B25		&th	&consonant tha	\cr
+d		&da		&C4		&0B26		&d	&consonant da	\cr
+D		&dha		&C5		&0B27		&dh	&consonant dha	\cr
+n		&na		&C6		&0B28		&n	&consonant na	\cr\noalign{\medskip}
+%
+p		&pa		&C8		&0B2A		&p	&consonant pa	\cr
+P		&pha		&C9		&0B2B		&ph	&consonant pha	\cr
+b		&ba		&CA		&0B2C		&b	&consonant ba	\cr
+B		&bha		&CB		&0B2D		&bh	&consonant bha	\cr
+m		&ma		&CC		&0B2E		&m	&consonant ma	\cr\noalign{\medskip}
+%
+Y		&ya		&CD		&0B5F		&y	&consonant ya	\cr
+y		&\.ya		&CE		&0B2F		&.y	&consonant yya	\cr
+r		&ra		&CF		&0B30		&r	&consonant ra	\cr
+l		&la		&D1		&0B32		&l	&consonant la	\cr
+v		&va		&D4		&0B13 0B4D 0B2C		&.v	&consonant va	\cr
+\orbadot&ba		&--		&--		&.b		&consonant ba with dot \cr
+z		&\'sa		&D5		&0B36		&sh	&consonant sha	\cr
+S		&\d{s}a		&D6		&0B37		&.s	&consonant ssa	\cr
+s		&sa		&D7		&0B38		&s	&consonant sa	\cr
+h		&ha		&D8		&0B39		&h	&consonant ha	\cr
+L		&\d{l}a		&D2		&0B33		&.l	&consonant lla	\cr\noalign{\medskip}
+%
+w\ornukta	&\d{r}a		&BF E9		&0B5C		&.r	&consonant rra	\cr
+W\ornukta	&\d{r}ha	&C0 E9		&0B5D		&.rh	&consonant rrha	\cr\noalign{\medskip\leftline{\it vowel signs}\medskip}
+%
+\dotcircle A	&\=a		&DA		&0B3E		&aa	&vowel sign aa	\cr
+\dotcircle[	&i		&DB		&0B3F		&i	&vowel sign i	\cr
+\dotcircle X	&\=\i		&DC		&0B40		&ii	&vowel sign ii	\cr
+\dotcircle]	&u		&DD		&0B41		&u	&vowel sign u	\cr
+\dotcircle Z	&\=u		&DE		&0B42		&uu	&vowel sign uu	\cr
+\dotcircle\orsignri&\d{r}		&DF		&0B43		&R	&vowel sign ri	\cr
+\dotcircle\orsignrii&\d{\=r}		&DF E9		&--		&RR	&vowel sign rii	\cr
+\dotcircle\orsignli&\d{l}		&DB E9		&--		&L	&vowel sign li	\cr
+\dotcircle\orsignlii&\d{\=l}		&DC E9		&--		&LL	&vowel sign lii	\cr
+<\dotcircle	&e		&E1		&0B47		&e	&vowel sign e	\cr
+<\dotcircle>	&ai		&E2		&0B48		&ai	&vowel sign ai	\cr
+<\dotcircle A	&o		&E4		&0B4B		&o	&vowel sign o	\cr
+<\dotcircle*	&au		&E5		&0B4C		&au	&vowel sign au	\cr\noalign{\medskip\leftline{\it additional vowels}\medskip}
+%
+e\orsecya>	&\^e	&--	&0BOF 0B4D 0B5F	&\~{}e	\cr
+o\orsecya>	&\^o	&--	&0B13 0B4D 0B5F	&\~{}o	\cr\noalign{\medskip\leftline{\it other signs and symbols}\medskip}
+%
+\dotcircle+	&		&E8		&0B4D		&+	&halant		\cr
+\oravagraha	&		&EA E9		&0B3D		&.a	&avagraha	\cr
+\organesh	&		&--		&0B70		&	&isshar		\cr
+\oromsign	&		&A1 E9		&--		&.o	&om sign	\cr\noalign{\medskip\leftline{\it digits}\medskip}
+%
+0		&0		&F1		&0B66		&0	&digit zero	\cr
+1		&1		&F2		&0b67		&1	&digit one	\cr
+2		&2		&F3		&0B68		&2	&digit two	\cr
+3		&3		&F4		&0B69		&3	&digit three	\cr
+4		&4		&F5		&0B6A		&4	&digit four	\cr
+5		&5		&F6		&0B6B		&5	&digit five	\cr
+6		&6		&F7		&0B6C		&6	&digit six	\cr
+7		&7		&F8		&0B6D		&7	&digit seven	\cr
+8		&8		&F9		&0B6E		&8	&digit eight	\cr
+9		&9		&FA		&0B6F		&9	&digit nine	\cr\noalign{\medskip\leftline{\it conjunct control}\medskip}
+%
+\orkra	&kra	&B3 E8 CF		&0B15 0B4D 0B30	&kra	&{\it ordinary conjunct}\cr
+k+r		&kra	&B3 E8 E8 CF	&0B15 0B4D 200C 0B30	&k+ra	&{\it explicit halant}\cr
+k\orsecra	&kra	&B3 E8 E8 E8 CF	&0B15 0B4D 200D 0B30	&k++ra	&{\it alternate conjunct}\cr
+}
+
+\vfill\eject
+\leftline{\bf Table of Consonant-Vowel Sign Combinations}
+\bigskip
+
+Vowel-signs often combine with the consonant or conjunct they modify.
+
+\medskip
+
+\halign{\it#\quad\hfill&&\orXII#\quad\hfill\cr
+	&\it a	&\it\=a &\it i	&\it\=\i &\it u	&\it\=u &\it\d{r} &\it e &\it ai &\it o &\it au &\it \.m&\it \d{m}&\it \d{h}\cr
+	&a	&aA	&i	&I	&u	&U	&\orvowelri	 &e	&E	&o	&O	&a/	&aM	&aH	\cr\noalign{\smallskip}
+k	&k	&kA	&k[	&kX	&k]	&kZ	&k\orsignri &<k	&<k>	&<kA	&<k*	&k/	&kM	&kH	\cr
+kh	&K	&KA	&K[	&KX	&K]	&KZ	&K\orsignri &<K	&<K>	&<KA	&<K*	&K/	&KM	&KH	\cr
+g	&g	&gA	&g[	&gX	&g]	&gZ	&g\orsignri &<g	&<g>	&<gA	&<g*	&g/	&gM	&gH	\cr
+gh	&G	&GA	&G[	&GX	&G]	&GZ	&G\orsignri &<G	&<G>	&<GA	&<G*	&G/	&GM	&GH	\cr
+\.n	&f	&fA	&f[	&fX	&f]	&fZ	&f\orsignri &<f	&<f>	&<fA	&<f*	&f/	&fM	&fH	\cr\noalign{\smallskip}
+%
+c	&c	&cA	&c[	&cX	&c]	&cZ	&c\orsignri &<c	&<c>	&<cA	&<c*	&c/	&cM	&cH	\cr
+ch	&C	&CA	&C[	&CX	&C]	&CZ	&C\orsignri &<C	&<C>	&<CA	&<C*	&C/	&CM	&CH	\cr
+j	&j	&jA	&j[	&jX	&j]	&jZ	&j\orsignri &<j	&<j>	&<jA	&<j*	&j/	&jM	&jH	\cr
+jh	&J	&JA	&J[	&JX	&J]	&JZ	&J\orsignri &<J	&<J>	&<JA	&<J*	&J/	&JM	&JH	\cr
+\~n	&F	&FA	&F[	&FX	&F]	&FZ	&F\orsignri &<F	&<F>	&<FA	&<F*	&F/	&FM	&FH	\cr\noalign{\smallskip}
+%
+\d{t}	&q	&qA	&q[	&qX	&q]	&qZ	&q\orsignri &<q	&<q>	&<qA	&<q*	&q/	&qM	&qH	\cr
+\d{t}h	&Q	&QA	&Q[	&QX	&Q]	&QZ	&Q\orsignri &<Q	&<Q>	&<QA	&<Q*	&Q/	&QM	&QH	\cr
+\d{d}	&w	&wA	&w[	&wX	&w]	&wZ	&w\orsignri &<w	&<w>	&<wA	&<w*	&w/	&wM	&wH	\cr
+\d{d}h	&W	&WA	&W[	&WX	&W]	&WZ	&W\orsignri &<W	&<W>	&<WA	&<W*	&W/	&WM	&WH	\cr
+\d{n}	&N	&NA	&N[	&NX	&N]	&NZ	&N\orsignri &<N	&<N>	&<NA	&<N*	&N/	&NM	&NH	\cr\noalign{\smallskip}
+%
+t	&t	&tA	&t[	&tX	&t]	&tZ	&t\orsignri &<t	&<t>	&<tA	&<t*	&t/	&tM	&tH	\cr
+th	&T	&TA	&T[	&TX	&T]	&TZ	&T\orsignri &<T	&<T>	&<TA	&<T*	&T/	&TM	&TH	\cr
+d	&d	&dA	&d[	&dX	&d]	&dZ	&d\orsignri &<d	&<d>	&<dA	&<d*	&d/	&dM	&dH	\cr
+dh	&D	&DA	&D[	&DX	&D]	&DZ	&D\orsignri &<D	&<D>	&<DA	&<D*	&D/	&DM	&DH	\cr
+n	&n	&nA	&n[	&nX	&n]	&nZ	&n\orsignri &<n	&<n>	&<nA	&<n*	&n/	&nM	&nH	\cr\noalign{\smallskip}
+%
+p	&p	&pA	&p[	&pX	&p]	&pZ	&p\orsignri &<p	&<p>	&<pA	&<p*	&p/	&pM	&pH	\cr
+ph	&P	&PA	&P[	&PX	&P]	&PZ	&P\orsignri &<P	&<P>	&<PA	&<P*	&P/	&PM	&PH	\cr
+b	&b	&bA	&b[	&bX	&b]	&bZ	&b\orsignri &<b	&<b>	&<bA	&<b*	&b/	&bM	&bH	\cr
+bh	&B	&BA	&B[	&BX	&B]	&BZ	&B\orsignri &<B	&<B>	&<BA	&<B*	&B/	&BM	&BH	\cr
+m	&m	&mA	&m[	&mX	&m]	&mZ	&m\orsignri &<m	&<m>	&<mA	&<m*	&m/	&mM	&mH	\cr\noalign{\smallskip}
+%
+y	&Y	&YA	&Y[	&YX	&Y]	&YZ	&Y\orsignri &<Y	&<Y>	&<YA	&<Y*	&Y/	&YM	&YH	\cr
+\.{y}	&y	&yA	&y[	&yX	&y]	&yZ	&y\orsignri &<y	&<y>	&<yA	&<y*	&y/	&yM	&yH	\cr
+r	&r	&rA	&r[	&rX	&r]	&rZ	&r\orsignri &<r	&<r>	&<rA	&<r*	&r/	&rM	&rH	\cr
+l	&l	&lA	&l[	&lX	&l]	&lZ	&l\orsignri &<l	&<l>	&<lA	&<l*	&l/	&lM	&lH	\cr
+%v	&v	&vA	&v[	&vX	&v]	&vZ	&v\orsignri &<v	&<v>	&<vA	&<v*	&v/	&vM	&vH	\cr
+\'s	&z	&zA	&z[	&zX	&z]	&zZ	&z\orsignri &<z	&<z>	&<zA	&<z*	&z/	&zM	&zH	\cr
+\d{s}	&S	&SA	&S[	&SX	&S]	&SZ	&S\orsignri &<S	&<S>	&<SA	&<S*	&S/	&SM	&SH	\cr
+s	&s	&sA	&s[	&sX	&s]	&sZ	&s\orsignri &<s	&<s>	&<sA	&<s*	&s/	&sM	&sH	\cr
+h	&h	&hA	&h[	&hX	&h]	&hZ	&h\orsignri &<h	&<h>	&<hA	&<h*	&h/	&hM	&hH	\cr
+\d{l}	&L	&LA	&L[	&LX	&L]	&LZ	&L\orsignri &<L	&<L>	&<LA	&<L*	&L/	&LM	&LH	\cr\noalign{\smallskip}
+	&\dotcircle 	&\dotcircle A	&\dotcircle [	
+&\dotcircle X	&\dotcircle ]	&\dotcircle Z	&\dotcircle\orsignri
+&<\dotcircle 	&<\dotcircle >	&<\dotcircle A	&<\dotcircle *
+&\dotcircle / &\dotcircle M	&\dotcircle H	\cr
+}
+
+\bigskip
+\leftline{\bf combinations of vowel signs, reph and candrabindu}
+\medskip
+
+When vowel signs, reph and candrabindu appear together, the following
+ligatures are used.
+
+\medskip
+
+{\orXII
+\dotcircle[\orcandrabindu\ %
+\dotcircle[\orreph\ %
+\dotcircle[\orreph\orcandrabindu\ %
+<\dotcircle>\orcandrabindu\ %
+<\dotcircle>\orreph\ %
+<\dotcircle>\orreph\orcandrabindu\ %
+<\dotcircle*\orcandrabindu\ %
+<\dotcircle*\orreph\ %
+<\dotcircle*\orreph\orcandrabindu\ %
+}
+
+\vfill\eject
+\leftline{\bf Table of Conjunct Consonants}
+\bigskip
+
+The conjunct consonants in Oriya are very intricate and irregular. The table
+below gives all the conjuncts included in the font, however, not all of these
+will be automatically used by the pre-processor.
+
+The conjuncts were collected from various sources. I consulted various Oriya
+grammars and dictionaries, and inspected the Oriya font produced by C-DAC. All 
+conjuncts encountered, except for those fully regular, like {\or k\orsecra} {\it kra}
+and {\or p\orsecya} {\it pya,} have been included in this list.
+
+\medskip
+
+\begindoublecolumns
+
+\halign{%
+\orXII#\rm\ \hfill&#\  \hfill&
+\orXII#\rm\ \hfill&#\  \hfill&
+\orXII#\rm\ \hfill&#\  \hfill&
+\orXII#\rm\ \hfill&#\  \hfill&
+\orXII#\rm\quad\quad\hfill&#\cr
+k	&+&k	&&	&&	&=&\orkka		&kka		\cr
+k   &+&q    &&  &&  &=&\orkTa		&k\d{t}a	\cr
+k	&+&t	&&	&&	&=&\orkta		&kta		\cr
+k	&+&r	&&	&&	&=&\orkra {\rm\ or} k\orsecra	&kra	\cr
+k	&+&l	&&	&&	&=&k\orsecla	&kla		\cr
+k	&+&b	&&	&&	&=&k\orsecva	&kva		\cr
+k	&+&S	&&	&&	&=&\orkSa		&k\d{s}a	\cr
+k	&+&S	&+&N	&&	&=&\orkSNa	&k\d{s}\d{n}a	\cr
+k	&+&s	&&	&&	&=&\orksa		&ksa		\cr
+%
+K	&+&Y	&&	&&	&=&K\orsecya	&khya		\cr
+%
+g	&+&g	&&	&&	&=&\orgga		&gga		\cr
+g	&+&D	&&	&&	&=&\orgdha		&gdha		\cr
+g	&+&n	&&	&&	&=&g\orsecna	&gna		\cr
+g	&+&r	&&	&&	&=&g\orsecra	&gra		\cr
+g	&+&l	&&	&&	&=&g\orsecla	&gla		\cr
+%
+G	&+&n	&&	&&	&=&G\orsecna	&ghna		\cr
+%
+f	&+&k	&&	&&	&=&\orngka		&\.nka		\cr
+f	&+&K	&&	&&	&=&\orngkha		&\.nkha		\cr
+f	&+&g	&&	&&	&=&\orngga		&\.nga		\cr
+f	&+&G	&&	&&	&=&\ornggha		&\.ngha		\cr
+%
+c	&+&c	&&	&&	&=&\orcca		&cca		\cr
+c	&+&C	&&	&&	&=&\orccha		&ccha		\cr
+%
+j	&+&j	&&	&&	&=&\orjja		&jja		\cr
+j	&+&J	&&	&&	&=&\orjjha		&jjha		\cr
+j	&+&F	&&	&&	&=&\orjnya		&j\~na		\cr
+j	&+&Y	&&	&&	&=&j\orsecya	&jya		\cr
+j	&+&b	&&	&&	&=&j\orsecva	&jva		\cr
+%
+F	&+&c	&&	&&	&=&\ornyca		&\~nca		\cr
+F	&+&C	&&	&&	&=&\ornyca\orseccha	&\~ncha		\cr
+F	&+&j	&&	&&	&=&\ornyja		&\~nja		\cr
+F	&+&J	&&	&&	&=&\ornyjha		&\~njha		\cr
+%
+q	&+&q	&&	&&	&=&\orTTa		&\d{t}\d{t}a	\cr
+%
+w   &+&g	&&	&&	&=&\orDga		&\d{d}ga		\cr
+w\ornukta&+&g&&	&&	&=&\orRga		&\d{r}ga		\cr
+w	&+&w	&&	&&	&=&\orDDa		&\d{d}\d{d}a	\cr
+%
+N	&+&q	&&	&&	&=&\orNTa		&\d{n}\d{t}a	\cr
+N	&+&Q	&&	&&	&=&\orNTha		&\d{n}\d{t}ha	\cr
+N	&+&w	&&	&&	&=&\orNDa		&\d{n}\d{d}a	\cr		
+N	&+&W	&&	&&	&=&\orNDha		&\d{n}\d{d}ha	\cr
+N	&+&N	&&	&&	&=&\orNNa		&\d{n}\d{n}a	\cr
+%
+t	&+&t	&&	&&	&=&\ortta		&tta		\cr
+t	&+&n	&&	&&	&=&\ortna		&tna		\cr
+t   &+&p	&&	&&	&=&\ortpa		&tpa		\cr
+t	&+&m	&&	&&	&=&\ortma {\rm\ or} t\orsecma	&tma	\cr
+t	&+&r	&&	&&	&=&\ortra {\rm\ or} t\orsecra	&tra	\cr
+t	&+&s	&&	&&	&=&\ortsa		&tsa		\cr
+%
+d	&+&g	&&	&&	&=&\ordga		&dga		\cr
+d	&+&d	&&	&&	&=&\ordda		&dda		\cr
+d	&+&D	&&	&&	&=&\orddha		&ddha		\cr
+d	&+&B	&&	&&	&=&\ordbha		&dbha		\cr
+d	&+&m	&&	&&	&=&d\orsecma	&dma		\cr
+%
+D	&+&Y	&&	&&	&=&\ordhya		&dhya		\cr
+D	&+&b	&&	&&	&=&D\orsecva	&dhva		\cr
+%
+n	&+&t	&&	&&	&=&\ornta		&nta		\cr
+n	&+&t	&+&Y	&&	&=&\ornta\orsecya	&ntya		\cr
+n	&+&t	&+&r	&&	&=&\orntra	&ntra		\cr
+n	&+&T	&&	&&	&=&n\orsectha	&ntha		\cr
+n	&+&d	&&	&&	&=&\ornda		&nda		\cr
+n	&+&D	&&	&&	&=&\orndha		&ndha		\cr
+n	&+&n	&&	&&	&=&n\orsecna	&nna		\cr
+%
+p	&+&Y	&&	&&	&=&p\orsecya	&pya		\cr
+%
+b	&+&j	&&	&&	&=&\orbja		&bja		\cr
+b	&+&d	&&	&&	&=&\orbda		&bda		\cr
+b   &+&D	&&	&&	&=&\orbdha		&bdha		\cr
+b	&+&b	&&	&&	&=&\orbba		&bba		\cr
+%
+p	&+&t	&&	&&	&=&\orpta		&pta		\cr
+p	&+&s	&&	&&	&=&\orpsa		&psa		\cr
+%
+m	&+&p	&&	&&	&=&\ormpa		&mpa		\cr
+m	&+&P	&&	&&	&=&\ormpha		&mpha		\cr
+m	&+&b	&&	&&	&=&m\orsecva	&mba		\cr
+m	&+&B	&&	&&	&=&m\orsecbha	&mbha		\cr
+m	&+&m	&&	&&	&=&\ormma		&mma		\cr
+%
+r	&+&N	&+&N	&&	&=&\orNNa\orreph	&r\d{n}\d{n}a	\cr
+r	&+&b	&&	&&	&=&b\orreph		&rba		\cr
+%
+l	&+&k	&&	&&	&=&\orlka		&lka		\cr
+l	&+&p	&&	&&	&=&\orlpa		&lpa		\cr
+l	&+&P	&&	&&	&=&\orlpha		&lpha		\cr
+l	&+&l	&&	&&	&=&\orlla		&lla		\cr
+%
+z	&+&c	&&	&&	&=&\orshca		&\'sca		\cr
+z	&+&C	&&	&&	&=&z\orseccha	&\'scha		\cr
+z	&+&q	&&	&&	&=&\orshTa		&\'s\d{t}a	\cr
+z	&+&n	&&	&&	&=&z\orsecna	&\'sna		\cr
+%
+S	&+&k	&&	&&	&=&\orSka		&\d{s}ka	\cr
+S	&+&q	&&	&&	&=&\orSTa		&\d{s}\d{t}a	\cr
+S	&+&Q	&&	&&	&=&\orSTha		&\d{s}\d{t}ha	\cr
+S   &+&N    &&  &&  &=&\orSNa		&\d{s}\d{n}a	\cr
+S	&+&p	&&	&&	&=&\orSpa		&\d{s}pa	\cr
+S	&+&P	&&	&&	&=&\orSpha		&\d{s}pha	\cr
+%
+s	&+&k	&&	&&	&=&\orska		&ska		\cr
+s	&+&K	&&	&&	&=&\orskha		&skha		\cr
+s	&+&t	&&	&&	&=&\orsta		&sta		\cr
+s	&+&t	&+&r	&&	&=&\orstra	&stra		\cr
+s	&+&T	&&	&&	&=&s\orsectha	&stha		\cr
+s	&+&p	&&	&&	&=&\orspa		&spa		\cr
+s	&+&P	&&	&&	&=&\orspha		&spha		\cr
+%
+h	&+&n	&&	&&	&=&\orhna		&hna		\cr
+h	&+&m	&&	&&	&=&\orhma		&hma		\cr
+h	&+&b	&&	&&	&=&\orhva		&hva		\cr
+}
+
+\enddoublecolumns
+
+\vfill\eject
+
+% Some conjunct-vowel sign combinations
+% 
+% {\or k] \orkka] \ormma Z \orpsa\orsecra \orpsa] p] s]  k\orsecva]}
+
+\beginsection Glyph Chart
+
+This chart gives all the glyphs and their positions in the Oriya font. Software should
+not rely on a certain glyph having a certain position in this chart, but use the
+symbolic names for glyphs and the mapping tables supplied with the font. The font
+includes several copies of the same glyph in different positions. Although such
+copies are not strictly necessary for a composing system as strong as \TeX, they will make
+life much easier to use the font in a Windows environment, to which I intend
+to adapt it.
+
+\bigskip
+
+\input chart
+
+\table or12
+
+\bye

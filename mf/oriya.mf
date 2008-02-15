@@ -1,0 +1,14 @@
+% oriya.mf -- An Oriya Metafont, driver file
+% Copyright 1996 Jeroen Hellingman
+
+input orsetup;			% set-up parameters
+input orkern;			% kerning table
+
+input ortest;
+
+input orglyphs;			% the Oriya glyph programs
+input dotcirc;			% dotted circle and white box character
+
+end.
+
+% end of oriya.mf
