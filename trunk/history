@@ -1,0 +1,31 @@
+History of Oriya-TeX
+
+08-JUN-1999 added k+tta, b+dha, t+pa, g+ga, rr+ga, dd+ga, g+dha, h+ba, h+na, t+pa. (JH)
+21-MAY-1999 added s+kha (JH)
+31-MAY-1998 added n+ta, ni, n+ti, h+ma; updated manual (JH)
+03-MAY-1998 added vowel signs rii, li, and lii (JH)
+19-DEC-1997 decided to make Oriya-TeX available as freeware. (JH)
+07-SEP-1997 added some more characters (JH)
+29-APR-1997 added some characters (JH)
+02-MAR-1997 prepared documentation and first beta-release. (JH)
+25-NOV-1996 adjusted weights of fonts (JH)
+
+17-OCT-1996 Moved from India to Holland
+
+06-OCT-1996 adjusted width of ya and yya
+            further clean-up (JH)
+05-OCT-1996 reduced inter-character spacing slightly (JH)
+03-OCT-1996 Added matra-i-candrabindu
+            clean-up of code (JH)
+02-OCT-1996 Added secondary bha (JH)
+01-OCT-1996 Added l+la 
+            created various styles (JH)
+09-SEP-1996 Changed candrabindu, added rii, li, lii (JH)
+            extended table of glyphs
+07-SEP-1996 Changed vowel signs ai, au (JH)
+15-AUG-1996 Created table of glyphs, consonant vowel combinations, 
+            and conjuncts (JH)
+26-JUL-1996 Archived (JH)
+
+01-OCT-1995 Started work on Oriya-TeX in Ahmedabad, India.
+---

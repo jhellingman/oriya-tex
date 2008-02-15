@@ -1,0 +1,25 @@
+
+Parameters for the Oriya fonts
+
+		in points unless indicated otherwise
+Font		gensize	uw	uh	rm	rb	slant	rot	thick	thin	
+
+or8		 8.0	0.18    0.17					3uw	0.8uw
+or10		10.0	0.21    0.21					3uw	0.8uw
+or12		12.0	0.25	0.25	6.0uw	1.5uw	0	30	3uw	0.7uw
+or17		17.28	0.34    0.36					3uw	0.6uw
+
+orsl8							0.17
+orsl10							0.17
+orsl12							0.17	
+
+orbf8							0
+orbf10							0		4.5uw	1.0uw
+orbf12							0		4.5uw	0.9uw
+
+orbs8							0
+orbs10							0
+orbs12							0	
+
+
+orss12							0	0	2.0uw	2.0uw

@@ -1,0 +1,34 @@
+
+Oriya Metafont
+Copyright 1996, 97, 98, 99 Jeroen Hellingman.
+
+This work may be freely used and distributed in the spirit of the
+GNU General Public Licence. In essence, the only restriction is that
+you cannot slap more restrictive licences on this or derived works.
+
+I would like to know it, when you use this software. Please do send me
+an e-mail or picture postcard, telling me who you are and what you're 
+using Oriya-TeX for. It will encourage me to continue improving this 
+software.
+
+Warning
+
+This is a work in progress, everything can change, and many letters
+will go through several iterations of trial and improvement. Especially,
+the assignments of glyphs to certain code positions is likely to change.
+
+The files were prepared on a Macintosh, so you might have to convert
+some text files to DOS or Unix end-of-line conventions.
+
+It is intended the package will accept Unicode, ISCII and modified
+Velthuis encoding, but as the pre-processor is not yet completed,
+Oriya still has to be typed in a cumbersome graphical way.
+
+Getting started
+
+1. place the .tfm files where TeX and your DVI driver can find them.
+2. place the .mf files in a place where Metafont can find them. Take care
+   that your TeX installation is configured to automatically generate missing 
+   fonts.
+
+Now view or print the file orman.dvi for further instructions.

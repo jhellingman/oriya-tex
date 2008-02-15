@@ -1,0 +1,68 @@
+Oriya-TeX
+
+Soon to be available: Oriya-TeX, for typesetting the Oriya script using TeX.
+
+features:
+
+* new calligraphic designed Oriya METAFONT
+* easy to type ASCII input, compatible with Velthuis' transcription scheme
+* CSX, ISCII and Unicode input and output
+* large number of conjuncts and ligatures
+* runs on any machine that has TeX and C++ available,
+  including PC's from IBM-AT upwards, MacOS, and Unix boxes.
+* cheapest system available to typeset in Oriya.
+
+status:
+
+Currently the fonts are ready for 'beta-testing'. People who know Oriya,
+as well as TeX are requested to have a carefull look at the fonts, and the files
+supplied with the package, and give their comments, remarks and bug-reports.
+
+The support software is not yet completed. The work is waiting for a
+new compiler to arrive.  I intend to produce both Java and C++ versions of 
+the convertion software.
+
+I also intend to create PostScript and TrueType versions of the fonts, but
+please not ask me now. I will announce them when ready.
+
+DO NOT USE THE BETA VERSION FOR SERIOUS PUBLICATIONS UNLESS YOU ARE PREPARED
+TO DO SOME WORK ON IMPROVING THE INPUT METHODS. THE INPUT METHODS WILL SURELY 
+CHANGE. 
+
+conditions:
+
+The package will be available as freeware. You may copy it, give it to your
+friends, or distribute it via the internet or on CD-Roms, and use it as much
+as you like for non-commercial as well as commercial purposes. The only 
+restriction is that you may not sell or otherwise make profit of the package
+or derived works, itself, apart from a reasonable fee for media or transmission
+times. Also, you may not pass arround a modified copy as the original.
+Derived works are all works created by modifing the software (code, fonts,
+macros), but do not include texts produced with the package. These are entirely
+yours.
+
+Copies of works printed with this package are more than welcome. As I am much
+interested in Indian language dictionaries, anyone working on an Oriya
+dictionary can have all support needed to use these fonts and have it printed.
+
+contact:
+
+  Jeroen Hellingman
+  Aletta Jacobsstraat 5
+  3404 XD IJsselstein
+  The Netherlands
+  
+  tel: +31 30 6875444
+  
+  email: jehe@kabelfoon.nl
+
+Also available:
+
+  Malayalam-TeX
+  Malayalam PostScript and TrueType fonts
+  Unicode Shapes font (TeX, PostScript, TrueType)
+
+  and soon:
+
+  Tamazight-TeX
+  Tamazight (Berber) PostScript and TrueType fonts

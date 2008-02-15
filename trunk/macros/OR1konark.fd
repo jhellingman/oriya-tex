@@ -1,0 +1,44 @@
+% OR1konark.fd
+% font definition for the Konark family in OR1 encoding.
+% Copyright 1996 Jeroen Hellingman
+
+\ProvidesFile{OR1konark.fd}[1996/11/21 Oriya font definition]%
+
+\DeclareFontFamily{OR1}{konark}{}%
+
+\DeclareFontShape{OR1}{konark}{m}{n}{
+	<5> <6> <7> <8> <9>	 or8
+	<10> <10.95>		 or10
+	<12> <14.4>	 	 or12
+	<17.28> <20.74> <24.88-> or17
+}{}
+\DeclareFontShape{OR1}{konark}{bx}{n}{
+	<5> <6> <7> <8> <9>	 orbf8
+	<10> <10.95>		 orbf10
+	<12> <14.4>		 orbf12
+	<17.28> <20.74> <24.88-> orbf17
+}{}
+\DeclareFontShape{OR1}{konark}{m}{sl}{
+	<5> <6> <7> <8> <9>	 orsl8
+	<10> <10.95>		 orsl10
+	<12> <14.4>		 orsl12
+	<17.28> <20.74> <24.88-> orsl17
+}{}
+\DeclareFontShape{OR1}{konark}{bx}{sl}{
+	<5> <6> <7> <8> <9>	 orbs8
+	<10> <10.95>		 orbs10
+	<12> <14.4>		 orbs12
+	<17.28> <20.74> <24.88-> orbs17
+}{}
+
+\DeclareFontShape{OR1}{konark}{m}{sc}{    <-> ssub * konark/m/n}{}
+\DeclareFontShape{OR1}{konark}{m}{it}{    <-> ssub * konark/m/sl}{}
+\DeclareFontShape{OR1}{konark}{m}{itsc}{  <-> ssub * konark/m/sl}{}
+\DeclareFontShape{OR1}{konark}{m}{slsc}{  <-> ssub * konark/m/sl}{}
+\DeclareFontShape{OR1}{konark}{bx}{sc}{   <-> ssub * konark/bx/n}{}
+\DeclareFontShape{OR1}{konark}{bx}{it}{   <-> ssub * konark/bx/sl}{}
+\DeclareFontShape{OR1}{konark}{bx}{itsc}{ <-> ssub * konark/bx/sl}{}
+\DeclareFontShape{OR1}{konark}{bx}{slsc}{ <-> ssub * konark/bx/sl}{}
+
+\endinput
+

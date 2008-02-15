@@ -1,0 +1,10 @@
+% orextra.mf
+%
+% Additional glyphs for the Oriya font, that didn't fit in the 256 positions 
+% Metafont normally has available.
+
+% codes
+
+
+
+% glyphs

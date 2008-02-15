@@ -1,0 +1,33 @@
+% OR1cuttack.fd
+% font definition for the Cuttack family in OR1 encoding.
+% Copyright 1996 Jeroen Hellingman
+%
+\ProvidesFile{OR1cuttack.fd}[1996/11/21 Oriya font definition]%
+%
+\DeclareFontFamily{OR1}{cuttack}{}%
+%
+\DeclareFontShape{OR1}{cuttack}{m}{n}{
+	<5> <6> <7> <8> <9> <10> <10.95> <12> <14.4>	orss10
+	<17.28> <20.74> <24.88-> 			orss17
+}{}
+\DeclareFontShape{OR1}{cuttack}{bx}{n}{
+	<5> <6> <7> <8> <9> <10> <10.95> <12> <14.4->	orssbf10
+}{}
+\DeclareFontShape{OR1}{cuttack}{m}{sl}{
+	<5> <6> <7> <8> <9> <10> <10.95> <12> <14.4->	orsssl10
+}{}
+\DeclareFontShape{OR1}{cuttack}{bx}{sl}{
+	<5> <6> <7> <8> <9> <10> <10.95> <12> <14.4->	orssbs10
+}{}
+%
+\DeclareFontShape{OR1}{cuttack}{m}{sc}{    <-> ssub * cuttack/m/n}{}
+\DeclareFontShape{OR1}{cuttack}{m}{it}{    <-> ssub * cuttack/m/sl}{}
+\DeclareFontShape{OR1}{cuttack}{m}{itsc}{  <-> ssub * cuttack/m/sl}{}
+\DeclareFontShape{OR1}{cuttack}{m}{slsc}{  <-> ssub * cuttack/m/sl}{}
+\DeclareFontShape{OR1}{cuttack}{bx}{sc}{   <-> ssub * cuttack/bx/n}{}
+\DeclareFontShape{OR1}{cuttack}{bx}{it}{   <-> ssub * cuttack/bx/sl}{}
+\DeclareFontShape{OR1}{cuttack}{bx}{itsc}{ <-> ssub * cuttack/bx/sl}{}
+\DeclareFontShape{OR1}{cuttack}{bx}{slsc}{ <-> ssub * cuttack/bx/sl}{}
+%
+\endinput
+

@@ -1,0 +1,113 @@
+This is TeX, Version 3.14159 (preloaded format=Plain 97.2.7)  20 JUN 1999 11:25
+**&Plain orman.tex
+(orman.tex (:TeX-inputs:Local:ormacs.tex (orcode.tex))
+(:TeX-inputs:Local:2kol.tex Double Column Format.
+\colwidth=\dimen16
+\bigcolheight=\dimen17
+\leftpluscenter=\dimen18
+\pagewidth=\dimen19
+\pageheight=\dimen20
+\ruleht=\dimen21
+\doublecolskip=\skip18
+\savespaceskip=\skip19
+\partialpage=\box16
+\savesize=\dimen22
+\margin=\insert252
+\leftheader=\toks12
+\rightheader=\toks13
+\balerrhelp=\toks14
+)
+Oriya-T\kern -.1667em\lower .5ex\hbox {E}\kern -.125emX Summary  License 
+[1] Introduction  [2] How the Oriya fonts were made  [3]
+How to Use Oriya-T\kern -.1667em\lower .5ex\hbox {E}\kern -.125emX [4] [5]
+[6] [7] [8] [9] [10] [11]
+Underfull \vbox (badness 10000) has occurred while \output is active
+\vbox(587.74998+0.83333)x167.65291
+.\glue(\topskip) 3.05556
+.\hbox(6.94444+2.25)x167.65291
+..\glue(\tabskip) 0.0
+..\hbox(6.94444+2.25)x15.83333, glue set 0.50002fill
+...\or@XII k
+...\glue 3.5 plus 2.0 minus 0.5
+...\glue 3.33333 plus 1.66666 minus 1.11111
+...\glue 0.0 plus 1.0fill
+..\glue(\tabskip) 0.0
+..\hbox(6.94444+2.25)x11.11113
+...\tenrm +
+...\glue 3.33333 plus 1.66666 minus 1.11111
+...\glue 0.0 plus 1.0fill
+..\glue(\tabskip) 0.0
+..etc.
+.\glue(\baselineskip) 2.80556
+.\hbox(6.94444+2.49998)x167.65291
+..\glue(\tabskip) 0.0
+..\hbox(6.94444+2.49998)x15.83333, glue set 0.50002fill
+...\or@XII k
+...\glue 3.5 plus 2.0 minus 0.5
+...\glue 3.33333 plus 1.66666 minus 1.11111
+...\glue 0.0 plus 1.0fill
+..\glue(\tabskip) 0.0
+..\hbox(6.94444+2.49998)x11.11113
+...\tenrm +
+...\glue 3.33333 plus 1.66666 minus 1.11111
+...\glue 0.0 plus 1.0fill
+..\glue(\tabskip) 0.0
+..etc.
+.\glue(\baselineskip) 2.55557
+.etc.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+\vbox(587.74998+3.0)x167.65291
+.\glue(\splittopskip) 3.05556
+.\hbox(6.94444+0.83333)x167.65291
+..\glue(\tabskip) 0.0
+..\hbox(6.94444+0.83333)x15.83333, glue set 1.75fill
+...\or@XII d
+...\glue 3.5 plus 2.0 minus 0.5
+...\glue 3.33333 plus 1.66666 minus 1.11111
+...\glue 0.0 plus 1.0fill
+..\glue(\tabskip) 0.0
+..\hbox(6.94444+0.83333)x11.11113
+...\tenrm +
+...\glue 3.33333 plus 1.66666 minus 1.11111
+...\glue 0.0 plus 1.0fill
+..\glue(\tabskip) 0.0
+..etc.
+.\glue(\baselineskip) 4.22223
+.\hbox(6.94444+3.75)x167.65291
+..\glue(\tabskip) 0.0
+..\hbox(6.94444+3.75)x15.83333, glue set 1.75fill
+...\or@XII d
+...\glue 3.5 plus 2.0 minus 0.5
+...\glue 3.33333 plus 1.66666 minus 1.11111
+...\glue 0.0 plus 1.0fill
+..\glue(\tabskip) 0.0
+..\hbox(6.94444+3.75)x11.11113
+...\tenrm +
+...\glue 3.33333 plus 1.66666 minus 1.11111
+...\glue 0.0 plus 1.0fill
+..\glue(\tabskip) 0.0
+..etc.
+.\glue(\baselineskip) 1.30556
+.etc.
+
+ [12]
+Glyph Chart  (:TeX-inputs:Local:chart.tex
+\counter=\count26
+)
+Missing character: There is no @ in font or12!
+Missing character: There is no R in font or12!
+Missing character: There is no ^^f4 in font or12!
+Missing character: There is no % in font or12!
+Missing character: There is no & in font or12!
+Missing character: There is no V in font or12!
+Missing character: There is no ^^b7 in font or12!
+Missing character: There is no ^^e7 in font or12!
+Missing character: There is no ^^eb in font or12!
+Missing character: There is no ^^fb in font or12!
+Missing character: There is no = in font or12!
+Missing character: There is no ^^ee in font or12!
+Missing character: There is no ^^8f in font or12!
+ [13] )
+Output written on orman.dvi (13 pages, 65972 bytes).
