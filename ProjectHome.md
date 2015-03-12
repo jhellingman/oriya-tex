@@ -1,0 +1,3 @@
+Oriya metafont and TeX macros to typeset the Oriya script, as used in the state of Orissa, India.
+
+Most of this metafont was produced in the period 1995 to 1996, while living in Ahmedabad, Gujarat. Some final edits have been made in 1999. I've now uploaded the entire source under the GPL 3.0. Note that this project was never completed. The fonts are complete, but a pre-processor still needs to be produced. I am aware of some third party developments on this, but have lost track of its exact status.
